@@ -103,10 +103,10 @@ ctx.stroke();
 
 document.querySelector(".draw").addEventListener("click", () => {
     canvas.classList.toggle("draww");
-    canvas.addEventListener('mouseover', (e) => {
-        e.target.style.cursor = "crosshair";
-    });
     if(canvas.classList.contains("draww")) {
+        canvas.addEventListener('mouseover', (e) => {
+            e.target.style.cursor = "crosshair";
+        });
         canvas.addEventListener('mousedown', draw);
         canvas.addEventListener('mousemove', e => {
             if(!isDrag) return;
@@ -122,12 +122,13 @@ document.querySelector(".draw").addEventListener("click", () => {
     }
     else {
         canvas.removeEventListener('mousedown', draw);
-        canvas.style.cursor = 'default';
+        canvas.addEventListener('mouseover', (e) => {
+            e.target.style.cursor = "default";
+        });
     }
 });
 
 function draw(e) {
     isDrag = true;
     ctx.moveTo(e.offsetX,e.offsetY);
-    
 }
