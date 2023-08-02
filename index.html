@@ -4,41 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <title>main</title>
-<<<<<<< HEAD
-=======
   <link rel="stylesheet" href="./css/style.css">
->>>>>>> a21c0cb023bb37776335991c2b18fcf968cefd93
 </head>
+
 <body>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    .box {
-      width: 150px;
-      height: 150px;
-      border: 2px solid #000;
-      text-align: center;
-    }
-
-    .container {
-      width: 1000px;
-      height: 500px;
-      border: 3px solid #000;
-    }
-
-    .img {
-      margin-top: 50px;
-      width: 70px;
-    }
-
-    .bottom {
-      display: flex;
-    }
-  </style>
   <div>
     <button class="ground">육</button>
     <button class="sea">해</button>
@@ -48,99 +17,9 @@
     <button class="remove">단일 제거</button>
     <button class="removeAll">전체 제거</button>
   </div>
-<<<<<<< HEAD
-
-  <div class="container" ondrop="drop(event)" ondragover="dragEnter(event)"></div>
-
-  <div class="bottom"></div>
-
-  <script>
-    let select = null;
-
-    const obj = {
-      육: {
-        육군: 'Infantry',
-        전차: 'Heavy_tank',
-      },
-      해: {
-        전함: ''
-      },
-      공: {
-        전투기: ''
-      }
-    }
-
-    let bottom = document.querySelector('.bottom');
-    document.querySelector('.ground').addEventListener('click', () => {
-      addBottom(obj.육);
-    });
-    document.querySelector('.sea').addEventListener('click', () => {
-      addBottom(obj.해);
-    });
-    document.querySelector('.sky').addEventListener('click', () => {
-      addBottom(obj.공);
-    });
-
-    function addBottom(e) {
-      bottom.textContent = '';
-      Object.values(e).forEach(el => {
-        const createDiv = document.createElement('div');
-        const createImg = document.createElement('img');
-        createImg.classList.add('img');
-        createImg.classList.add('cantRemove');
-        createImg.setAttribute('id', `${el}`);
-        createImg.setAttribute('src', `./images/${el}.png`)
-        createImg.setAttribute('draggable', 'true');
-        createImg.setAttribute('ondragstart', 'drag(event)');
-        createDiv.classList.add('box');
-        createDiv.setAttribute("ondragover", "dragEnter(event)");
-        createDiv.addEventListener('dragstart', () => { select = el });
-        createDiv.append(createImg);
-        bottom.append(createDiv);
-      });
-    }
-
-    document.querySelector('.remove').addEventListener('click', e => {
-      let img = document.querySelectorAll('.img');
-      select = 'remove';
-      img.forEach(el => {
-        el.addEventListener('click', (ee) => removeObject(ee))
-      });
-    });
-    document.querySelector('.removeAll').addEventListener('click', () => {
-      select = 'removeAll';
-      document.querySelector('.container').textContent = '';
-    });
-
-    function dragEnter(ev) {
-      ev.preventDefault();
-    }
-
-    function drag(ev) {
-      ev.dataTransfer.setData("text", ev.target.id);
-    }
-
-    function drop(ev) {
-      ev.preventDefault();
-      const data = ev.dataTransfer.getData("text");
-      const img = document.getElementById(data).cloneNode(true);
-      img.style.position = 'absolute';
-      img.style.top = (ev.clientY - 50) + 'px';
-      img.style.left = (ev.clientX - 50) + 'px';
-      img.classList.remove('cantRemove');
-      ev.target.appendChild(img);
-    }
-
-    function removeObject(ee) {
-      if (select == 'remove' && !ee.target.classList.contains('cantRemove')) {
-        ee.target.remove();
-      }
-    }
-
-  </script>
-=======
   <div>
     <button class="draw">펜</button>
+    <button class="canvasClear">지우기</button>
   </div>
   
   <div class="container" ondrop="drop(event)" ondragover="dragEnter(event)">
@@ -150,7 +29,6 @@
   <div class="bottom"></div>
 
   <script src="./js/common.js"></script>
->>>>>>> a21c0cb023bb37776335991c2b18fcf968cefd93
 
 </body>
 
