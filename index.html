@@ -58,6 +58,7 @@
     });
 
     function addBottom(e) {
+      bottom.textContent = '';
       Object.values(e).forEach(el => {
         const createDiv = document.createElement('div');
         const createImg = document.createElement('img');
@@ -109,14 +110,13 @@
     function add(select, ev) {
       var data = ev.dataTransfer.getData("text");
       ev.target.appendChild(document.getElementById(data));
-      let img = ev.target.children[i];
-      console.log(i)
-      img.style.position = 'absolute';
-      img.style.top = ev.clientY + 'px';
-      img.style.left = ev.clientX + 'px';
-      img.classList.remove('cantRemove');
-      let box = document.querySelectorAll('.box');
-      box.forEach(el => {
+      let evTargetChildren = ev.target.children[i];
+      console.log(i, ev.target.children, data);
+      evTargetChildren.style.position = 'absolute';
+      evTargetChildren.style.top = ev.clientY + 'px';
+      evTargetChildren.style.left = ev.clientX + 'px';
+      evTargetChildren.classList.remove('cantRemove');
+      document.querySelectorAll('.box').forEach(el => {
         if(el.children.length == 0) {
           const addImg = document.createElement('img');
           addImg.classList.add('img');
