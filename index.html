@@ -27,21 +27,16 @@
     }
 
     .img {
-      width: 90px;
+      margin-top: 50px;
+      width: 70px;
     }
 
     .bottom {
       display: flex;
     }
-
-    .ground {
-      background: url(./images/Infantry.png);
-      width: 50px;
-      height: 50px;
-    }
   </style>
   <div>
-    <input type="button" class="ground">
+    <button class="ground">육</button>
     <button class="sea">해</button>
     <button class="sky">공</button>
   </div>
@@ -59,14 +54,14 @@
 
     const obj = {
       육: {
-        육군: 'soldier',
-        탱크: 'tank',
+        육군: 'Infantry',
+        전차: 'Heavy_tank',
       },
       해: {
-        잠수함: ''
+        전함: 'Hold'
       },
       공: {
-        제트기: ''
+        전투기: ''
       }
     }
 
