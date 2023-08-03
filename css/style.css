@@ -13,11 +13,19 @@
   color: inherit;
   text-decoration: none;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1fbdadb506ece606efe8744c10aba82c2a767a71
 body {
   background-color: #222831;
   /* background-color: rgb(197, 187, 187); */
   overflow-y: hidden;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1fbdadb506ece606efe8744c10aba82c2a767a71
 .container {
   align-items: center;
   justify-content: space-around;
@@ -26,6 +34,10 @@ body {
   width: 100%;
   height: 1000px;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1fbdadb506ece606efe8744c10aba82c2a767a71
 .cont-1 {
   width: 400px;
   height: 890px;
@@ -33,6 +45,10 @@ body {
   border-radius: 5px;
   /* border: solid 1px rgba(205, 201, 201, 0.518); */
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1fbdadb506ece606efe8744c10aba82c2a767a71
 .cont-2 {
   /* border: solid 1px rgba(205, 201, 201, 0.518); */
   border-radius: 5px;
@@ -40,17 +56,30 @@ body {
   height: 800px;
   background-color: rgb(243, 240, 240);
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1fbdadb506ece606efe8744c10aba82c2a767a71
 .cont-val {
   width: 1450px;
   height: 900px;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1fbdadb506ece606efe8744c10aba82c2a767a71
 .title {
   font-size: 24px;
   text-align: center;
   width: 100%;
   height: 70px;
+<<<<<<< HEAD
   color: #fff;
 }
+=======
+}
+
+>>>>>>> 1fbdadb506ece606efe8744c10aba82c2a767a71
 .val-a {
   align-items: center;
   justify-content: center;
@@ -59,6 +88,10 @@ body {
   height: 120px;
   border-bottom: 2px solid gray;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1fbdadb506ece606efe8744c10aba82c2a767a71
 .value-a {
   border-radius: 10px;
   width: 360px;
@@ -67,9 +100,17 @@ body {
   text-align: center;
   line-height: 94px;
 }
+<<<<<<< HEAD
 .value-a > li {
   cursor: pointer;
 }
+=======
+
+.value-a>li {
+  cursor: pointer;
+}
+
+>>>>>>> 1fbdadb506ece606efe8744c10aba82c2a767a71
 .inner {
   gap: 30px;
   align-items: center;
@@ -80,7 +121,12 @@ body {
   height: 550px;
   border-bottom: solid 2px gray;
 }
+<<<<<<< HEAD
 .inner > div {
+=======
+
+.inner>div {
+>>>>>>> 1fbdadb506ece606efe8744c10aba82c2a767a71
   line-height: 70px;
   text-align: center;
   border-radius: 10px;
@@ -89,13 +135,23 @@ body {
   background-color: rgb(187, 181, 181);
   cursor: pointer;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1fbdadb506ece606efe8744c10aba82c2a767a71
 .bottom {
   justify-content: center;
   display: flex;
   width: 100%;
   height: 175px;
+<<<<<<< HEAD
   /* border: solid 1px gray; */
   > .bottom-val-a {
+=======
+
+  /* border: solid 1px gray; */
+  >.bottom-val-a {
+>>>>>>> 1fbdadb506ece606efe8744c10aba82c2a767a71
     gap: 40px;
     align-items: center;
     justify-content: center;
@@ -105,7 +161,12 @@ body {
     /* border: solid 1px gray; */
   }
 }
+<<<<<<< HEAD
 .bottom-val-a > div {
+=======
+
+.bottom-val-a>div {
+>>>>>>> 1fbdadb506ece606efe8744c10aba82c2a767a71
   border-radius: 10px;
   width: 110px;
   height: 45px;
@@ -114,6 +175,10 @@ body {
   line-height: 45px;
   cursor: pointer;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1fbdadb506ece606efe8744c10aba82c2a767a71
 .map {
   border-radius: 5px;
   width: 1450px;
@@ -125,6 +190,10 @@ body {
   width: 1450px;
   height: 800px;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1fbdadb506ece606efe8744c10aba82c2a767a71
 /* .value-a {
     overflow: hidden;
   } */
@@ -171,9 +240,14 @@ body {
   position: absolute;
   bottom: 15px;
   right: 0;
+<<<<<<< HEAD
   z-index: 100;
   display: flex;
   transition: 0.3s;
+=======
+  z-index: 1;
+  display: flex;
+>>>>>>> 1fbdadb506ece606efe8744c10aba82c2a767a71
 }
 
 .box {
@@ -182,18 +256,34 @@ body {
   border: 3px solid #bababa;
   margin: 0 10px;
 }
+<<<<<<< HEAD
 .img {
   z-index: 100;
   width: 100px;
 }
+=======
+
+.img {
+  z-index: 100;
+  width: 100px;
+  margin-left: 25px;
+  margin-top: 40px;
+}
+
+>>>>>>> 1fbdadb506ece606efe8744c10aba82c2a767a71
 .containerr {
   width: 1450px;
   height: 800px;
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 1fbdadb506ece606efe8744c10aba82c2a767a71
 /* .remove {text-align: center; line-height: 45px;} */
 .none {
   display: none;
 }
+<<<<<<< HEAD
 .map {
   position: absolute;
   top: 120px;
@@ -214,3 +304,7 @@ body {
   width: 100px;
   font-size: 40px;
 }
+=======
+
+.ground {}
+>>>>>>> 1fbdadb506ece606efe8744c10aba82c2a767a71
