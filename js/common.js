@@ -1,8 +1,8 @@
 // 변수들
-const container = document.querySelector('.container');
+const container = document.querySelector('.containerr');
 const canvas = document.getElementById('canvas');
 const ctx = canvas.getContext('2d');
-let bottom = document.querySelector('.bottom');
+let bottom = document.querySelector('.bottomm');
 let isDrag = false;
 let i = 0;
 
@@ -21,14 +21,19 @@ const obj = {
 }
 
 // canvas 초기 설정
-canvas.width=1200;
-canvas.height=500;
+canvas.width=1450;
+canvas.height=800;
 ctx.beginPath();
 ctx.stroke();
 
 // 여기서부터 함수들
 function addBottom(e) {
   bottom.textContent = '';
+  bottom.classList.remove('none');
+  const close = document.createElement('button');
+  close.className = 'close';
+  close.textContent = 'x';
+  bottom.append(close)
   Object.values(e).forEach(el => {
     const createDiv = document.createElement('div');
     const createImg = document.createElement('img');
@@ -42,6 +47,10 @@ function addBottom(e) {
     createDiv.setAttribute("ondragover", "dragEnter(event)");
     createDiv.append(createImg);
     bottom.append(createDiv);
+    bottom.style.background = 'rgba(0, 0, 0, 0.7)';
+  });
+  document.querySelector('.close').addEventListener('click', () => {
+    bottom.classList.add('none');
   });
 }
 
@@ -87,6 +96,8 @@ document.querySelector('.ground').addEventListener('click', () => addBottom(obj.
 document.querySelector('.sea').addEventListener('click', () => addBottom(obj.해) );
 document.querySelector('.sky').addEventListener('click', () => addBottom(obj.공) );
 
+
+
 // 유닛 단일 제거
 document.querySelector('.remove').addEventListener('click', e => { 
   let img = document.querySelectorAll('.img');
@@ -97,9 +108,9 @@ document.querySelector('.remove').addEventListener('click', e => {
 
 // 유닛 전체 제거
 document.querySelector('.removeAll').addEventListener('click', () => {
-  Array.from(container.children).forEach(element => {
-    if(element.classList.contains('img')) {
-      element.remove();
+  Array.from(container.children).forEach(el => {
+    if(el.classList.contains('img')) {
+      el.remove();
       i = 0;
     }
   });
