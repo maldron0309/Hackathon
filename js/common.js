@@ -32,7 +32,7 @@ ctx.stroke();
 // 여기서부터 함수들
 function addBottom(e) {
   bottom.textContent = "";
-  bottom.classList.remove("none");
+  // bottom.classList.remove("none");
   const close = document.createElement("button");
   close.className = "close";
   close.textContent = "x";
@@ -50,10 +50,13 @@ function addBottom(e) {
     createDiv.setAttribute("ondragover", "dragEnter(event)");
     createDiv.append(createImg);
     bottom.append(createDiv);
-    bottom.style.background = "rgba(0, 0, 0, 0.7)";
+    bottom.style.background = "rgba(0, 0, 0, 0.8)";
+    // bottom.style.background = "#000";
+    bottom.style.width = '1500px';
   });
   document.querySelector(".close").addEventListener("click", () => {
-    bottom.classList.add("none");
+    // bottom.classList.add("none");
+    bottom.style.width = '0';
   });
 }
 
@@ -70,7 +73,7 @@ function drop(ev) {
   const data = ev.dataTransfer.getData("text");
   const img = document.getElementById(data).cloneNode(true);
   img.style.position = "absolute";
-  img.style.top = ev.clientY - 200 + "px";
+  img.style.top = ev.clientY - 150 + "px";
   img.style.left = ev.clientX - 500 + "px";
   img.classList.remove("cantRemove");
   ev.target.parentElement.appendChild(img);
@@ -116,10 +119,16 @@ document.querySelector(".remove").addEventListener("click", (e) => {
 // 유닛 전체 제거
 document.querySelector(".removeAll").addEventListener("click", () => {
   Array.from(containerr.children).forEach((el) => {
-    if (el.classList.contains("img")) {
-      el.remove();
-      i = 0;
-    }
+    // if (el.classList.contains("img")) {
+    //   el.remove();
+    //   i = 0;
+    // }
+    Array.from(el.children).forEach(e => {
+      if (e.classList.contains("img")) {
+        e.remove();
+        i = 0;
+      }
+    })
   });
 });
 
@@ -146,9 +155,9 @@ document.querySelector(".draw").addEventListener("click", () => {
       ctx.beginPath();
     });
   } else {
-    fix = false;
-    fixBtn.textContent = "지도 고정";
-    canvas.style.zIndex = "-100";
+    // fix = false;
+    // fixBtn.textContent = "지도 고정";
+    // canvas.style.zIndex = "-100";
     canvas.removeEventListener("mousedown", draw);
     canvas.addEventListener("mouseover", (e) => {
       e.target.style.cursor = "default";
