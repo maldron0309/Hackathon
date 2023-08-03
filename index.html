@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <title>main</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
     <!-- <script src="./css.js"></script> -->
@@ -13,7 +13,7 @@
           <ul class="value-a">
             <li>
               <ul class="in-value-a">
-                <li><a href="">마커</a></li>
+                <li class="fix">지도 고정</li>
                 <!-- <li><a href="">d</a></li>
                 <li><a href="">d</a></li>
                 <li><a href="">d</a></li> -->
@@ -40,11 +40,15 @@
       <div class="cont-val">
         <div class="title">전략대백과</div>
         <div class="cont-2">
-          <div class="containerr" ondrop="drop(event)" ondragover="dragEnter(event)">
-            <canvas id="canvas"></canvas>
+          <div
+            class="containerr"
+            ondrop="drop(event)"
+            ondragover="dragEnter(event)"
+          >
             <div class="map">
+              <canvas id="canvas"></canvas>
               <div id="map"></div>
-              <!-- <script
+              <script
                 type="text/javascript"
                 src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e6ab82cf5485e84e2250fe1e8eae152e"
               ></script>
@@ -55,11 +59,10 @@
                   level: 3,
                 };
                 var map = new kakao.maps.Map(container, options);
-              </script> -->
-              </div>
+              </script>
             </div>
-            
           </div>
+        </div>
       </div>
     </div>
     <div class="bottomm">
