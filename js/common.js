@@ -11,7 +11,7 @@ const obj = {
   육 : {
     보병 : 'Infantry',
     전차 : 'tank',
-    공수 : 'Paratroop',
+    공수 : 'Paratㅂroop',
   },
   해 : {
     전함 : 'Superheavy_Battleship',
@@ -33,13 +33,16 @@ ctx.stroke();
 function addBottom(e) {
   bottom.textContent = '';
   bottom.classList.remove('none');
+
   const close = document.createElement('button');
   close.className = 'close';
   close.textContent = 'x';
   bottom.append(close)
+  
   Object.values(e).forEach(el => {
     const createDiv = document.createElement('div');
     const createImg = document.createElement('img');
+
     createImg.classList.add('img');
     createImg.classList.add('cantRemove');
     createImg.setAttribute('id', `${el}`);
@@ -49,6 +52,7 @@ function addBottom(e) {
     createDiv.classList.add('box');
     createDiv.setAttribute("ondragover", "dragEnter(event)");
     createDiv.append(createImg);
+
     bottom.append(createDiv);
     bottom.style.background = 'rgba(0, 0, 0, 0.7)';
   });
@@ -69,6 +73,7 @@ function drop(ev) {
   ev.preventDefault();
   const data = ev.dataTransfer.getData("text");
   const img = document.getElementById(data).cloneNode(true);
+
   img.style.position = 'absolute';
   img.style.top = (ev.clientY - 50) + 'px';
   img.style.left = (ev.clientX - 50) + 'px';
