@@ -7,14 +7,18 @@ let i = 0;
 
 const obj = {
   육 : {
-      육군 : 'soldier',
-      탱크 : 'tank', 
+    보병 : 'Infantry',
+    전차 : 'tank', 
+    공수 : 'Paratroop',
   },
   해 : {
-    잠수함 : ''
+    전함 : 'Superheavy_Battleship',
+    순양함 : 'Battlecruiser',
+
   },
   공 : {
-    제트기 : ''
+    전투기 : 'Heavy_fighter',
+    폭격기 : 'Strategic_bomber',
   }
 }
 
