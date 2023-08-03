@@ -9,14 +9,17 @@ let i = 0;
 // 유닛들
 const obj = {
   육 : {
-    육군 : 'soldier',
-    탱크 : 'tank', 
+    보병 : 'Infantry',
+    전차 : 'tank',
+    공수 : 'Paratroop',
   },
   해 : {
-    잠수함 : ''
+    전함 : 'Superheavy_Battleship',
+    순양 : 'Battlecruiser',
   },
   공 : {
-    제트기 : ''
+    전투기 : 'Heavy_fighter',
+    폭격기 : 'Strategic_bomber',
   }
 }
 
@@ -95,8 +98,6 @@ function clearCanvas() {
 document.querySelector('.ground').addEventListener('click', () => addBottom(obj.육) );
 document.querySelector('.sea').addEventListener('click', () => addBottom(obj.해) );
 document.querySelector('.sky').addEventListener('click', () => addBottom(obj.공) );
-
-
 
 // 유닛 단일 제거
 document.querySelector('.remove').addEventListener('click', e => { 
