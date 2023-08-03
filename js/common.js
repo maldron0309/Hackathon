@@ -96,8 +96,6 @@ document.querySelector('.ground').addEventListener('click', () => addBottom(obj.
 document.querySelector('.sea').addEventListener('click', () => addBottom(obj.해) );
 document.querySelector('.sky').addEventListener('click', () => addBottom(obj.공) );
 
-
-
 // 유닛 단일 제거
 document.querySelector('.remove').addEventListener('click', e => { 
   let img = document.querySelectorAll('.img');
