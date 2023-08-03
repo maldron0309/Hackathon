@@ -1,41 +1,92 @@
-const container = document.querySelector('.containerr');
-const canvas = document.getElementById('canvas');
-const ctx = canvas.getContext('2d');
-const bottom = document.querySelector('.bottomm');
+// 변수들
+const containerr = document.querySelector(".containerr");
+const cont2 = document.querySelector(".cont-2");
+const fixBtn = document.querySelector(".fix");
+const canvas = document.getElementById("canvas");
+const ctx = canvas.getContext("2d");
+let bottom = document.querySelector(".bottomm");
 let isDrag = false;
+let fix = false;
 let i = 0;
 
+// 유닛들
+const obj = {
+  육: {
+    육군: "soldier",
+    탱크: "tank",
+  },
+  해: {
+    잠수함: "",
+  },
+  공: {
+    제트기: "",
+  },
+};
+
+// canvas 초기 설정
 canvas.width = 1450;
 canvas.height = 800;
 ctx.beginPath();
 ctx.stroke();
 
-function addBottom(units) {
-  bottom.innerHTML = `
-    <button class="close">x</button>
-    ${Object.values(units)
-      .map(
-        (unit) =>
-          `<div class="box" ondragover="dragEnter(event)">
-            <img src="./images/${unit}.png" id="${unit}" class="img cantRemove" draggable="true" ondragstart="drag(event)">
-          </div>`
-      )
-      .join('')}
-  `;
-  bottom.classList.remove('none');
-  bottom.style.background = 'rgba(0, 0, 0, 0.7)';
-
-  document.querySelector('.close').addEventListener('click', () => {
-    bottom.classList.add('none');
+// 여기서부터 함수들
+function addBottom(e) {
+  bottom.textContent = "";
+  bottom.classList.remove("none");
+  const close = document.createElement("button");
+  close.className = "close";
+  close.textContent = "x";
+  bottom.append(close);
+  Object.values(e).forEach((el) => {
+    const createDiv = document.createElement("div");
+    const createImg = document.createElement("img");
+    createImg.classList.add("img");
+    createImg.classList.add("cantRemove");
+    createImg.setAttribute("id", `${el}`);
+    createImg.setAttribute("src", `./images/${el}.png`);
+    createImg.setAttribute("draggable", "true");
+    createImg.setAttribute("ondragstart", "drag(event)");
+    createDiv.classList.add("box");
+    createDiv.setAttribute("ondragover", "dragEnter(event)");
+    createDiv.append(createImg);
+    bottom.append(createDiv);
+    bottom.style.background = "rgba(0, 0, 0, 0.7)";
+  });
+  document.querySelector(".close").addEventListener("click", () => {
+    bottom.classList.add("none");
   });
 }
 
-function removeObject(e) {
-  if (!e.target.classList.contains('cantRemove')) {
-    e.target.remove();
+function dragEnter(ev) {
+  ev.preventDefault();
+}
+
+function drag(ev) {
+  ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+  ev.preventDefault();
+  const data = ev.dataTransfer.getData("text");
+  const img = document.getElementById(data).cloneNode(true);
+  img.style.position = "absolute";
+  img.style.top = ev.clientY - 200 + "px";
+  img.style.left = ev.clientX - 500 + "px";
+  img.classList.remove("cantRemove");
+  ev.target.parentElement.appendChild(img);
+}
+
+function removeObject(ee) {
+  if (!ee.target.classList.contains("cantRemove")) {
+    ee.target.remove();
     i -= 1;
     if (i <= 0) i = 0;
   }
+}
+
+function draw(e) {
+  isDrag = true;
+  ctx.moveTo(e.offsetX, e.offsetY);
 }
 
 function clearCanvas() {
@@ -43,58 +94,88 @@ function clearCanvas() {
   ctx.beginPath();
 }
 
+// 여기서부터 이벤트리스너들
 document
-  .querySelector('.ground')
-  .addEventListener('click', () => addBottom({ 보병: 'Infantry', 전차: 'tank', 공수: 'Paratroop' }));
+  .querySelector(".ground")
+  .addEventListener("click", () => addBottom(obj.육));
 document
-  .querySelector('.sea')
-  .addEventListener('click', () => addBottom({ 전함: 'Superheavy_Battleship', 순양: 'Battlecruiser' }));
+  .querySelector(".sea")
+  .addEventListener("click", () => addBottom(obj.해));
 document
-  .querySelector('.sky')
-  .addEventListener('click', () => addBottom({ 전투기: 'Heavy_fighter', 폭격기: 'Strategic_bomber' })); document.querySelector('.remove').addEventListener('click', () =>
-    document.querySelectorAll('.img').forEach((el) =>
-      el.addEventListener('click', (ev) => removeObject(ev))
-    )
-  ); document.querySelector('.removeAll').addEventListener('click', () => {
-    Array.from(container.children).forEach((el) => {
-      if (el.classList.contains('img')) {
-        el.remove();
-        i = 0;
-      }
-    });
-  }); document.querySelector('.draw').addEventListener('click', () => {
-    canvas.classList.toggle('draww');
-    if (canvas.classList.contains('draww')) {
-      canvas.style.cursor = 'crosshair';
-      canvas.addEventListener('mousedown', draw);
-      canvas.addEventListener('mousemove', (e) => {
-        if (!isDrag) return;
-        ctx.lineTo(e.offsetX, e.offsetY);
-        ctx.stroke();
-      });
-      canvas.addEventListener('mouseup', () => {
-        isDrag = false;
-      });
-      canvas.addEventListener('mouseenter', () => {
-        ctx.beginPath();
-      });
-    } else {
-      canvas.style.cursor = 'default';
-      canvas.removeEventListener('mousedown', draw);
+  .querySelector(".sky")
+  .addEventListener("click", () => addBottom(obj.공));
+
+// 유닛 단일 제거
+document.querySelector(".remove").addEventListener("click", (e) => {
+  let img = document.querySelectorAll(".img");
+  img.forEach((el) => {
+    el.addEventListener("click", (ee) => removeObject(ee));
+  });
+});
+
+// 유닛 전체 제거
+document.querySelector(".removeAll").addEventListener("click", () => {
+  Array.from(containerr.children).forEach((el) => {
+    if (el.classList.contains("img")) {
+      el.remove();
+      i = 0;
     }
-  }); document.querySelector('.canvasClear').addEventListener('click', clearCanvas); function dragEnter(ev) {
-    ev.preventDefault();
-  } function drag(ev) {
-    ev.dataTransfer.setData('text', ev.target.id);
-  } function drop(ev) {
-    ev.preventDefault();
-    const data = ev.dataTransfer.getData('text');
-    const img = document.getElementById(data).cloneNode(true); img.style.position = 'absolute';
-    img.style.top = ev.clientY - 50 + 'px';
-    img.style.left = ev.clientX - 50 + 'px';
-    img.classList.remove('cantRemove');
-    ev.target.parentElement.appendChild(img);
-  } function draw(e) {
-    isDrag = true;
-    ctx.moveTo(e.offsetX, e.offsetY);
+  });
+});
+
+// 캔버스 그림판코드
+document.querySelector(".draw").addEventListener("click", () => {
+  canvas.classList.toggle("draww");
+  if (canvas.classList.contains("draww")) {
+    fix = true;
+    fixBtn.textContent = "지도 고정 해제";
+    canvas.style.zIndex = "10";
+    canvas.addEventListener("mouseover", (e) => {
+      e.target.style.cursor = "crosshair";
+    });
+    canvas.addEventListener("mousedown", draw);
+    canvas.addEventListener("mousemove", (e) => {
+      if (!isDrag) return;
+      ctx.lineTo(e.offsetX, e.offsetY);
+      ctx.stroke();
+    });
+    canvas.addEventListener("mouseup", () => {
+      isDrag = false;
+    });
+    canvas.addEventListener("mouseenter", () => {
+      ctx.beginPath();
+    });
+  } else {
+    fix = false;
+    fixBtn.textContent = "지도 고정";
+    canvas.style.zIndex = "-100";
+    canvas.removeEventListener("mousedown", draw);
+    canvas.addEventListener("mouseover", (e) => {
+      e.target.style.cursor = "default";
+    });
   }
+});
+
+// 캔버스 지우기 이벤트 리스너
+document.querySelector(".canvasClear").addEventListener("click", clearCanvas);
+
+// 지도 고정 / 해제
+fixBtn.addEventListener("click", () => {
+  if (fix == false) {
+    // const div = document.createElement("div");
+    // div.classList.add("ddd");
+    // cont2.parentElement.prepend(div);
+    fixBtn.textContent = "지도 고정 해제";
+    canvas.style.zIndex = "10";
+    fix = true;
+  } else if (fix == true) {
+    // cont2.parentElement.removeChild(document.querySelector(".ddd"));
+    fixBtn.textContent = "지도 고정";
+    canvas.style.zIndex = "-100";
+    fix = false;
+  }
+});
+
+// document.querySelector(".mapMove").addEventListener("click", () => {
+//   canvas.style.zIndex = "-1";
+// });
