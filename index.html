@@ -1,35 +1,76 @@
 <!DOCTYPE html>
 <html lang="ko">
-
-<head>
-  <meta charset="UTF-8">
-  <title>main</title>
-  <link rel="stylesheet" href="./css/style.css">
-</head>
-
-<body>
-    
-  <div>
-    <button class="ground">육</button>
-    <button class="sea">해</button>
-    <button class="sky">공</button>
-  </div>
-  <div>
-    <button class="remove">단일 제거</button>
-    <button class="removeAll">전체 제거</button>
-  </div>
-  <div>
-    <button class="draw">펜</button>
-  </div>
-  
-  <div class="container" ondrop="drop(event)" ondragover="dragEnter(event)">
-    <canvas id="canvas"></canvas>
-  </div>
-  
-  <div class="bottom"></div>
-
-  <script src="./js/common.js"></script>
-
-</body>
-
+  <head>
+    <meta charset="utf-8" />
+    <title>main</title>
+    <link rel="stylesheet" href="./css/style.css" />
+  </head>
+  <body>
+    <!-- <script src="./css.js"></script> -->
+    <div class="container">
+      <div class="cont-1">
+        <div class="val-a">
+          <ul class="value-a">
+            <li>
+              <ul class="in-value-a">
+                <li class="fix">지도 고정</li>
+                <!-- <li><a href="">d</a></li>
+                <li><a href="">d</a></li>
+                <li><a href="">d</a></li> -->
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <div class="val-b">
+          <div class="inner">
+            <div class="ground">육군</div>
+            <div class="sea">해군</div>
+            <div class="sky">공군</div>
+            <div class="draw">그리기</div>
+            <div class="canvasClear">지우기</div>
+          </div>
+        </div>
+        <div class="bottom">
+          <div class="bottom-val-a">
+            <div class="remove">단일 삭제</div>
+            <div class="removeAll">전체 삭제</div>
+          </div>
+        </div>
+        <button class="simulation">시뮬레이션</button>
+      </div>
+      <div class="cont-val">
+        <div class="title">전략대백과</div>
+        <div class="cont-2">
+          <div
+            class="containerr"
+            ondrop="drop(event)"
+            ondragover="dragEnter(event)"
+          >
+            <div class="map">
+              <canvas id="canvas"></canvas>
+              <div id="map"></div>
+                <!-- <script
+                  type="text/javascript"
+                  src="//dapi.kakao.com/v2/maps/sdk.js?appkey=e6ab82cf5485e84e2250fe1e8eae152e"
+                ></script>
+                <script>
+                  var container = document.getElementById("map");
+                  var options = {
+                    center: new kakao.maps.LatLng(33.450701, 126.570667),
+                    level: 3,
+                  };
+                  var map = new kakao.maps.Map(container, options);
+                </script> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="bottomm">
+      <!-- <button class="close none">x</button> -->
+      <button class="close">x</button>
+    </div>
+    <div class="lds-ring">분석중...<div></div><div></div><div></div><div></div></div>
+    <script src="./js/common.js"></script>
+  </body>
 </html>
