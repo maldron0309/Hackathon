@@ -25,5 +25,5 @@
 - CSS
 - JavaScript
 
-  # 수상
-<strong>최우수상</strong>
+  ## 수상
+  <strong>최우수상</strong>
