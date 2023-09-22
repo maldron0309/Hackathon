@@ -7,10 +7,11 @@
 2023.07.31 ~ 2023.08.04
 
 ## 팀원
+- [박진형](https://github.com/maldron0309)
+- [전찬하](https://github.com/wjscksgk)
+- [hoonzz07](https://github.com/hoonzz07)
+- [Dohyun1014](https://github.com/Dohyun1014)
 
-- 팀원 A
-- 팀원 B
-- 팀원 C
 
 ## 주요 기능
 
