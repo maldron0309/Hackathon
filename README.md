@@ -9,8 +9,8 @@
 ## 팀원
 - [박진형](https://github.com/maldron0309)
 - [전찬하](https://github.com/wjscksgk)
-- [hoonzz07](https://github.com/hoonzz07)
-- [Dohyun1014](https://github.com/Dohyun1014)
+- [정재훈](https://github.com/hoonzz07)
+- [김도현](https://github.com/Dohyun1014)
 
 
 ## 주요 기능
